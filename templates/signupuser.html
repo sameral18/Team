@@ -1,0 +1,145 @@
+{% extends 'base.html' %} {% block content %}
+{% if form.errors  %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">There was an error
+  <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+</div>
+{% endif %}
+<div class="page">
+  <h1 class="h1-responsive font-weight-bold">Sign Up</h1>
+  {% include 'global/error.html' %}
+  <div class="row content">
+    <div class="card register-form">
+        {% csrf_token %}
+        <div class="input-group mb-1">
+            <input
+                    maxlength="150"
+                    autocapitalize="none"
+                    autocomplete="username"
+                    autofocus
+                    required
+                    name="username"
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+            />
+        </div>
+        <div class="input-group mb-1">
+            <input
+                    maxlength="150"
+                    autocapitalize="none"
+                    autocomplete="first_name"
+                    required
+                    placeholder="First name"
+                    type="text"
+                    class="form-control"
+                    name="first_name"
+                    aria-label="first_name"
+                    aria-describedby="basic-addon1"
+            />
+        </div>
+        <div class="input-group mb-1">
+            <input
+                    maxlength="150"
+                    autocapitalize="none"
+                    autocomplete="last_name"
+                    required
+                    placeholder="Last name"
+                    type="text"
+                    class="form-control"
+                    name="last_name"
+                    aria-label="last_name"
+                    aria-describedby="basic-addon1"
+            />
+        </div>
+        <div class="input-group mb-1">
+            <input
+                    maxlength="150"
+                    autocapitalize="none"
+                    autocomplete="email"
+                    required
+                    name="email"
+                    type="text"
+                    class="form-control"
+                    placeholder="email"
+                    aria-label="email"
+                    aria-describedby="basic-addon1"
+            />
+        </div>
+        <div class="input-group mb-1">
+            <input
+                    maxlength="150"
+                    autocapitalize="none"
+                    autocomplete="college"
+                    required
+                    name="college"
+                    type="text"
+                    class="form-control"
+                    placeholder="college"
+                    aria-label="college"
+                    aria-describedby="basic-addon1"
+            />
+            <div class="input-group mb-1">
+                <input
+                        maxlength="150"
+                        autocapitalize="none"
+                        autocomplete="major"
+                        required
+                        name="major"
+                        type="text"
+                        class="form-control"
+                        placeholder="major"
+                        aria-label="major"
+                        aria-describedby="basic-addon1"
+                />
+            </div>
+            <div class="input-group my-1">
+                <input
+                        name="password1"
+                        autocomplete="new-password"
+                        type="password"
+                        class="form-control"
+                        placeholder="Password"
+                        aria-label="Password"
+                        aria-describedby="basic-addon1"
+                />
+            </div>
+            <div class="text-dark" style="width: 95%">
+                <span style="font-weight: 500">Note: </span>
+                <span>Make sure your password fits following criteria</span>
+                <ul class="text-muted" style="list-style-type: circle">
+                    <li>
+                        Your password can’t be too similar to your other personal
+                        information.
+                    </li>
+                    <li>Your password must contain at least 8 characters.</li>
+                    <li>Your password can’t be a commonly used password.</li>
+                    <li>Your password can’t be entirely numeric.</li>
+                </ul>
+            </div>
+            <div class="input-group mt-1 mb-3">
+                <input
+                        name="password2"
+                        type="password"
+                        autocomplete="new-password"
+                        class="form-control"
+                        placeholder="Confirm Password"
+                        aria-label="Password"
+                        aria-describedby="basic-addon1"
+                />
+            </div>
+            <button
+                    type="submit"
+                    class="btn btn-success"
+                    style="margin-bottom: 0.5rem; width: 50%"
+            >
+                Sign Up
+            </button>
+            <a href="/login" class="btn btn-primary" style="width: 50%"
+            >Sign In With an Existing Account</a
+            >
+        </div>
+  </div>
+</div>
+{% endblock %}

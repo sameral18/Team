@@ -1,0 +1,5 @@
+{%if error %}
+    <div class="message {{error|yesno:"error, success, ''"}}">
+        {{ error }}
+    </div>
+  {% endif %}

@@ -1,0 +1,119 @@
+{% extends 'global/page.html' %} {% block page_header_top %}
+<div class="header-top-content">
+  <h1 class="h1-responsive font-weight-bold">User Settings</h1>
+  {% include 'global/goBack.html' %}
+</div>
+{% endblock %} {% block page_content %}
+<form method="POST">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-6">
+      <div class="md-form mb-0">
+        <label for="major" class="">Major</label>
+        <input
+          type="text"
+          id="major"
+          name="major"
+          class="form-control"
+          value="{{form.major.value}}"
+        />
+        {%if form.errors.major %}
+        <p>{{ form.errors.major }}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mb-0">
+        <label for="college" class="">College</label>
+        <input
+          type="text"
+          id="college"
+          name="college"
+          class="form-control"
+          value="{{form.college.value}}"
+        />
+        {%if form.errors.college %}
+        <p>{{ form.errors.college }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="md-form mb-0">
+        <label for="first_name" class="">First Name</label>
+        <input
+          type="text"
+          id="first_name"
+          name="first_name"
+          class="form-control"
+          value="{{form.first_name.value}}"
+        />
+        {%if form.errors.first_name %}
+        <p>{{ form.errors.first_name }}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mb-0">
+        <label for="last_name" class="">Last Name</label>
+        <input
+          type="text"
+          id="last_name"
+          name="last_name"
+          class="form-control"
+          value="{{form.last_name.value}}"
+        />
+        {%if form.errors.last_name %}
+        <p>{{ form.errors.last_name }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="md-form mb-0">
+        <label for="email" class="">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          value="{{form.email.value}}"
+        />
+        {%if form.errors.email %}
+        <p>{{ form.errors.email }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="md-form mb-0">
+        <label for="password1" class="">Password</label>
+        <input
+          id="password1"
+          name="password1"
+          type="password"
+          class="form-control"
+        />
+        {%if form.errors.password %}
+        <p>{{ form.errors.password }}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mb-0">
+        <label for="password2" class="">Re-Password</label>
+        <input
+          id="password2"
+          name="password2"
+          type="password"
+          class="form-control"
+        />
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock %}

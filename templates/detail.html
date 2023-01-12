@@ -1,0 +1,21 @@
+{% extends 'global/page.html' %} {% block page_header_top %}
+{% load comment_tags %}  
+{% include_bootstrap %} 
+<div class="header-top-content">
+  <h1 class="h1-responsive font-weight-bold">{{ blog.title }}</h1>
+  {% include 'global/goBack.html' %}
+</div>
+{% endblock %} {% block page_content %}
+<div class="card">
+  <div class="card-body">
+    <h2>--{{ blog.date|date:'F jS Y'}}--</h2>
+    <p>{{ blog.description|safe }}</p>
+  </div>
+</div>
+<form method="POST" action="{% url 'deleteBlog' blog.id %}" class="text-center">
+  {% csrf_token %}
+  <button class="btn btn-danger" type="submit">Delete post</button>
+  <a class="btn btn-info" href="{% url 'editBlog' blog.id %}">Edit post</a>
+</form>
+{% render_comments blog request %}
+{% endblock %}
