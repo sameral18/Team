@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block content %}
+<div id="login" class="page">
+  <h1 class="h1-responsive font-weight-bold">Login</h1>
+  {% include 'global/error.html' %}
+  <div class="row content">
+    <div class="card login-form">
+    <form method="POST" class="form-container">
+      {% csrf_token %}
+      <div class="input-group mb-3">
+        <input
+          name="username"
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+          autofocus
+          required
+        />
+      </div>
+      <div class="input-group mb-3">
+        <input
+          name="password"
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          aria-label="Password"
+          aria-describedby="basic-addon1"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-success"
+        style="margin-bottom: 0.5rem; width: 50%"
+      >
+        login
+      </button>
+      <a href="/signup" class="btn btn-primary" style="width: 50%"> Register </a>
+    </form>
+  </div>
+</div>
+</div>
+{% endblock %}

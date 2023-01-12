@@ -1,0 +1,60 @@
+{% extends 'global/page.html' %} {% block page_header_top %}
+<div class="header-top-content">
+  <div>
+    <h1 class="h1-responsive font-weight-bold">Contact Admin</h1>
+    <p class="text-center w-responsive mx-auto">
+     Report any bugs or "bad data"
+    </p>
+  </div>
+</div>
+{% endblock %} {% block page_content %}
+<div class="row">
+    <form id="contact-form" name="contact-form" method="POST">
+        {% csrf_token %}
+        <div class="row">
+        <div class="col-md-12">
+          <div class="md-form mb-0">
+            <label for="subject" class="">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="form-control"
+              value="{{form.subject.value}}"
+            />
+            {%if form.errors.subject %}
+            <p>{{ form.errors.subject }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="md-form">
+            <label for="message">Message</label>
+            <textarea
+              type="text"
+              id="message"
+              name="message"
+              rows="2"
+              class="form-control md-textarea"
+              value="{{form.message.value}}"
+            ></textarea>
+            {%if form.errors.message %}
+            <p>{{ form.errors.message }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="text-center text-md-left">
+      <a
+        class="btn btn-primary"
+        onclick="document.getElementById('contact-form').submit();"
+        >Send</a
+      >
+    </div>
+    <div class="status"></div>
+  </div>
+</div>
+{% endblock %}

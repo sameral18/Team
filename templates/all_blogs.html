@@ -1,0 +1,35 @@
+{% extends 'global/page.html' %} {% block page_header_top %}
+
+<div class="header-top-content">
+  <h1 class="h1-responsive font-weight-bold">Blog</h1>
+  {% include 'global/goBack.html' %}
+</div>
+{% endblock %} {% block page_content %}
+<div class="card">
+  <div class="card-body">
+    <h2>
+      {{ user.username }} has written
+      {{blogs.count}}blog{{blogs.count|pluralize}}
+    </h2>
+    <p><a href="{% url 'createBlog' %}">create blog</a></p>
+  </div>
+</div>
+{% if blogs %}
+<div class="cards p-0">
+  <h4 class="mb-2">Blogs list:</h4>
+  {% for blog in blogs %}
+  <div class="card" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">
+        <a href="{% url 'detail' blog.id %}">{{ blog.title }}</a>
+      </h5>
+      <p class="card-text">{{ blog.date|date:'M d Y'|upper }}</p>
+      <p class="card-text">
+        {{ blog.description|striptags|truncatechars:200 }}
+      </p>
+    </div>
+  </div>
+  
+  {% endfor %}
+</div>
+{% endif %} {% endblock %}

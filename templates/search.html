@@ -1,0 +1,22 @@
+{% extends 'global/page.html' %}
+
+{% block content %}
+<center>
+    {% if searched %}
+<h1>you search for {{ searched }}</h1>
+<br/>
+{% for blog in blogs %}
+   <a href="{% url 'detail' blog.id %}">{{ blog.title }}</a><br/>
+{% endfor %}
+{% for project in projects %}
+   <a href="{% url 'detailp' project.id %}">{{ project.title }}</a><br/>
+{% endfor %}
+{% else  %}
+<h1>Hey you forgot to search</h1>
+{% endif %}
+
+
+</center>
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'global/page.html' %} {% block page_header_top %}
+<div class="header-top-content">
+  <h1 class="h1-responsive font-weight-bold">Create Blog Post</h1>
+  {% include 'global/goBack.html' %}
+</div>
+{% endblock %} {% block page_content %}
+<form method="POST">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-6">
+      <div class="md-form mb-0">
+        <label for="title" class="">Title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          class="form-control"
+          value="{{form.title.value}}"
+        />
+        {%if form.errors.title %}
+        <p>{{ form.errors.title }}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="md-form mb-0">
+        <label for="date" class="">Date</label>
+        <input
+          type="date"
+          id="date"
+          name="date"
+          class="form-control"
+          value="{{form.date.value}}"
+        />
+        {%if form.errors.date %}
+        <p>{{ form.errors.date }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="md-form mb-0">
+        <label for="description" class="">Description</label>
+        <textarea
+          type="text"
+          rows="4"
+          id="description"
+          name="description"
+          class="form-control"
+          value="{{form.description.value}}"
+        ></textarea>
+        {%if form.errors.description %}
+        <p>{{ form.errors.description }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>
+{% endblock %}

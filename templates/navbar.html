@@ -1,0 +1,35 @@
+<nav>
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/contactus">Contact us</a>
+      </li>
+      <li>
+        <a href="/personalArea">Personal area</a>
+      </li>
+      <li>
+        <a href="/blog">Blog</a>
+      </li>
+      <li>
+        <a href="/userSettings">user settings</a>
+      </li>
+      <li>
+        <a href="/portfolio">Portfolio</a>
+      </li>
+      <form class="d-flex" method=POST action="{% url 'search' %}">
+        {% csrf_token %}
+        <input class="form-control me-2" type = "search" placeholder="Search" aria-label="Search" name="searched">
+        <button class="btn btn-outline-secondary" type="submit">Search</button> 
+      </form>
+      <li class="spacer"></li>
+      <li class="last">
+        <span>Logged In as {{ user.username }}</span>
+        <form action="{% url 'logoutuser' %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" title="logout"><i class="fas fa-sign-out-alt"></i></button>
+        </form>
+      </li>
+    </ul>
+  </nav>

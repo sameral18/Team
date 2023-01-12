@@ -1,0 +1,28 @@
+{% extends 'global/page.html' %}
+
+{% block page_header_top %}
+
+<form method="GET">
+<input type="text" id = "namefile1" name="namefile1" placeholder="Name of the subject"><br>
+ <input type="file" name="myfile"><br><br>
+  <input type="submit">
+</form>
+
+
+{% for x in data %}
+<h1><button onclick="myFunction1()">{{ x.name }}</button><br></h1><br>
+<br>
+<script>
+function myFunction1() {
+    document.open();
+    document.write("<br><h3>{{ x.file.url }}</h3>");
+   document.close();}
+
+</script>
+
+
+
+
+ {% endfor %}
+
+{% endblock %}

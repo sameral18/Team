@@ -1,0 +1,22 @@
+{% extends 'global/page.html' %} 
+{% block page_header_top %}
+<div class="header-top-content justify-content-center">
+  <h1 class="h1-responsive font-weight-bold my-4">Home</h1>
+</div>
+{% endblock %} {% block page_content %}
+<form class="col text-center" action="{% url 'personalArea' %}" method="POST">
+  {% csrf_token %}
+  <button class="page-btn" type="submit">Personal area</button>
+</form>
+<form class="col text-center" action="{% url 'scholarship' %}" method="POST">
+  {% csrf_token %}
+  <button class="page-btn" type="submit">scholarship</button>
+</form><br>
+<form class="col text-center" action="{% url 'SmmaryDataBank' %}" method="POST">
+  {% csrf_token %}
+  <button class="page-btn" type="submit">smmary files</button>
+</form>
+
+
+
+{% endblock %}

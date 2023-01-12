@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h3> Create Student</h3>
+    <div class="container">
+        <form action="{% url 'addStudent' %}" method="post">
+            {% csrf_token %}
+        {{ form.as_ul}}
+                <label for="Choose teacher">Choose a Teacher:</label>
+                <select name="teacher" required>
+   <option disabled="true" selected></option>
+
+    {% for i in teachers %}
+    <option>{{ i }}</option>
+{% endfor %}
+    </select>
+        <div class="row">
+                      <form >
+                        <div class="col-sm-3">
+                          <input type="submit" value="Add user" class="btn btn-success">
+                        </div>
+                        <div class="col-sm-3">
+                          <a href="{% url 'user_list' %}" class="btn btn-secondary ">Back to list</a>
+                             <i class="fas fa-stream"></i>
+                        </div>
+                      </form>
+                    </div>
+        </form>
+    </div>
+
+
+{% endblock %}
